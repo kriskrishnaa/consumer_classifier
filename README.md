@@ -1,4 +1,4 @@
-*** Consumer Classifier *** is Python module for performing clustering (grouping) of consumers based on their behaviour features.
+***Consumer Classifier*** is Python module for performing clustering (grouping) of consumers based on their behaviour features.
 
 
 ## Installation

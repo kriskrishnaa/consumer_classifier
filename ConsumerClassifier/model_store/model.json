@@ -1,0 +1,34 @@
+{
+    "feature_colums": [
+        "account_age",
+        "account_last_updated",
+        "app_downloads",
+        "avg_claims",
+        "has_dob",
+        "has_email",
+        "has_first_name",
+        "has_gender",
+        "has_last_name",
+        "max_claims",
+        "min_claims",
+        "total_offer_clicks",
+        "total_offer_rides",
+        "total_offers_claimed",
+        "unique_offer_clicked",
+        "unique_offer_rides"
+    ],
+    "model_hyperparameteres": {
+        "cluster_size": 2,
+        "rf_estimators": 10
+    },
+    "metrics": {
+        "accuracy": 0.9992,
+        "f1_score": 0.9984279181611925,
+        "Recall": 0.9946666666666667,
+        "Precision": 1.0
+    },
+    "classes": {
+        "0": "cluster_8408",
+        "1": "cluster_1592"
+    }
+}

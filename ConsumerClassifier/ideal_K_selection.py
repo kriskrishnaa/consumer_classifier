@@ -5,11 +5,11 @@ from sklearn.cluster import KMeans
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("Technical test sample data.csv")
+df = pd.read_excel("Technical test sample data.ods", engine="odf")
 
 selected_columns = ['has_gender', 'has_first_name',
        'has_last_name', 'has_email', 'has_dob', 'account_age',
-       'account_last_updated', 'account_status', 'app_downloads',
+       'account_last_updated', 'app_downloads',
        'unique_offer_clicked', 'total_offer_clicks', 'unique_offer_rides',
        'total_offer_rides', 'avg_claims', 'min_claims', 'max_claims',
        'total_offers_claimed']
@@ -20,7 +20,7 @@ sse = {}
 for k in range(1, 10):
     kmeans = KMeans(n_clusters=k, max_iter=1000).fit(train_df)
     train_df["clusters"] = kmeans.labels_
-    sse[k] = kmeans.inertia_ # Inertia: Sum of distances of samples to their closest cluster center
+    sse[k] = kmeans.inertia_ 
 plt.figure()
 plt.plot(list(sse.keys()), list(sse.values()))
 plt.xlabel("Number of cluster")

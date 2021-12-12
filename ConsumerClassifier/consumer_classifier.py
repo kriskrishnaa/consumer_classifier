@@ -24,7 +24,14 @@ class classifier:
     
     def prep_data(self, model_log):
         expected_columns = list(model_log['feature_colums'])
-        df_ = pd.read_csv(self.data_path)
+        
+        if Path(self.data_path).suffix == '.ods':
+            df_ = pd.read_excel(self.data_path, engine="odf")
+        elif Path(self.data_path).suffix == '.csv':
+            df_ = pd.read_csv(self.data_path)
+        else:
+            raise Exception('Not a valid file type - ', Path(self.data_path).suffix)
+            
         df_ = df_[expected_columns]
         return df_.values
 

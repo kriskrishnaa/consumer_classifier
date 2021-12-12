@@ -12,7 +12,15 @@ from sklearn.ensemble import RandomForestClassifier
 class Modelling:
     def __init__(self, dataset_path, output_dir):
         self.dataset_path = dataset_path
-        self.data = pd.read_csv(self.dataset_path)
+
+        if Path(self.dataset_path).suffix == '.ods':
+            df_ = pd.read_excel(self.dataset_path, engine="odf")
+        elif Path(self.dataset_path).suffix == '.csv':
+            df_ = pd.read_csv(self.dataset_path)
+        else:
+            raise Exception('Not a valid file type - ', Path(self.data_path).suffix)
+
+        self.data = df_
         self.output_dir = output_dir
         self.model_log = {}
         
